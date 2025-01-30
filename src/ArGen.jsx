@@ -21,7 +21,7 @@ const FoodAR = ({ food }) => {
       <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
         {/* Assets */}
         <a-assets>
-          <a-asset-item id="model" src={food.model}></a-asset-item>
+          <a-asset-item id="model" src="/models/Helicopter.glb"></a-asset-item>
         </a-assets>
 
         {/* Marker */}
