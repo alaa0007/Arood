@@ -5,8 +5,8 @@ const FoodList = () => {
   const [selectedFood, setSelectedFood] = useState(null);
 
   const foods = [
-    { id: 1, name: 'Helicopter', model: '/models/Helicopter.glb' },
-    { id: 2, name: 'Helicopter', model: '/models/Helicopter.glb' },
+    { id: 1, name: 'Helio', model: '/models/Helicopter.glb' },
+    { id: 2, name: 'Heli', model: '/models/Helicopter.glb' },
     { id: 3, name: 'Helicopter', model: '/models/Helicopter.glb' },
   ];
 
