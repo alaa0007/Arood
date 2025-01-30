@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import 'aframe';
 import 'ar.js';
 
-
 const FoodAR = ({ food }) => {
-    console.log(food);
-    
   useEffect(() => {
+    // Check for AR support
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      alert('AR is not supported on this device. Please try on a mobile device with a camera.');
+      return;
+    }
+
     // Create the AR scene
     const scene = document.createElement('a-scene');
     scene.setAttribute('embedded', '');
@@ -36,17 +39,13 @@ const FoodAR = ({ food }) => {
 
     // Append the scene to the body
     document.body.appendChild(scene);
-    console.log('AR.js context:', scene.components['arjs']);
+
     // Cleanup on component unmount
     return () => {
       document.body.removeChild(scene);
     };
   }, [food]);
 
-  if (!navigator.xr) {
-    alert('AR is not supported on this device. Please try on a mobile device with a camera.');
-  }
-  
   return (
     <div>
       <h2>Viewing {food.name} in AR</h2>
@@ -61,6 +60,5 @@ FoodAR.propTypes = {
     model: PropTypes.string.isRequired,
   }).isRequired,
 };
-
 
 export default FoodAR;
